@@ -38,4 +38,3 @@ spec:
       port: http
       targetPort: 80
       protocol: TCP 
-  type: LoadBalancer
