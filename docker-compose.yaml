@@ -12,5 +12,6 @@ services:
   fastapi-jai-yacine:
     image: ghcr.io/yacinejazi/2021-2022-mlops-exam-2-yacinejazi:master
     ports:
-    enviroment:
+      - 8004:8001
+
 

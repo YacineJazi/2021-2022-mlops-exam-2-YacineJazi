@@ -1,12 +1,11 @@
-from typing import List
-from fastapi import FastAPI, HTTPException
-from fastapi import FastAPI, File, UploadFile
-import Response
 import uvicorn
+from fastapi import FastAPI
 import requests
 import os
 app = FastAPI()
 API_CONNECTION = os.environ['API_CONNECTION']
+#API_CONNECTION = "test"
+
 
 @app.get("/")
 def start():
@@ -26,6 +25,13 @@ def sendInput(imagePath):
         print(e)
         return Response('Something went wrong. Search the logs for the error.', 500)
     
+
+class Response():
+    text:str
+    code:int
+
+    def print(self):
+        print(self.code+": " +self.text)
 
 # Run the script
 if __name__ == "__main__":
