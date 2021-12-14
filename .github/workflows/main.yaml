@@ -1,8 +1,11 @@
 name: Build, Push and Deploy Docker images onto Kubernetes
-on:
+on: 
   # run it on push to the default repository branch
   push:
     branches: [master]
+
+  workflow_dispatch:
+  
   # run it during pull request
 env:
   REGISTRY: ghcr.io
