@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-      workload.user.cattle.io/workloadselector: apps.deployment-jazi-yacine-exam 
+        workload.user.cattle.io/workloadselector: apps.deployment-jazi-yacine-exam 
     spec:
       containers:
         - image: ghcr.io/yacinejazi/2021-2022-mlops-exam-2-yacinejazi:master
