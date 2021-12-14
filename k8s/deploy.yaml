@@ -35,6 +35,6 @@ spec:
     workload.user.cattle.io/workloadselector: apps.deployment-jazi-yacine-exam 
   ports:
     - name: fastapi-http
-      port: http
+      port: 3000
       targetPort: 80
       protocol: TCP
