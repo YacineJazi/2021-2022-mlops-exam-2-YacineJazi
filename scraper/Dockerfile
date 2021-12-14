@@ -1,0 +1,27 @@
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8 as build-image
+
+COPY ./requirements.txt ./
+
+RUN pip wheel --wheel-dir=/root/wheels -r requirements.txt
+
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8 as production-image
+
+COPY --from=build-image /root/wheels /root/wheels
+
+COPY --from=build-image /app/requirements.txt ./
+
+RUN echo "Acquire::Check-Valid-Until \"false\";\nAcquire::Check-Date \"false\";" | cat > /etc/apt/apt.conf.d/10no--check-valid-until
+
+RUN apt-get -y update
+RUN apt-get -y install libgl1-mesa-glx dos2unix
+
+RUN pip install --no-index --find-links=/root/wheels -r requirements.txt
+
+LABEL org.opencontainers.image.source="https://github.com/howest-mct/2021-2022-mlops-exam-2-YacineJazi"
+
+COPY ./app /app
+ENV PYTHONPATH=/app
+
+EXPOSE 80
+
+CMD ["uvicorn", "app.main:app","--host", "0.0.0.0", "--port", "80"]

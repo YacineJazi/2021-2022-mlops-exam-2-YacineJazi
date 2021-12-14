@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  fastapi:
+    image: ghcr.io/nathansegers/mlops-exam-2-fastapi:latest
+    ports:
+      - 8000:80
+    volumes:
+      - ./data:/mnt/data/storage
+    environment:
+      STORAGE_PATH: /mnt/data/storage
+  image: ghcr.io/yacinejazi/2021-2022-mlops-exam-2-YacineJazi:main
