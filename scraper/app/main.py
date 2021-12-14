@@ -13,7 +13,7 @@ def start():
 
 
 #Extra => try catch with bad data
-@app.post("/predict_movies", status_code=200)
+@app.post("/image", status_code=200)
 def sendInput(imagePath):
     image = requests.get(imagePath).content
     files = {'file': (imagePath.split('/')[-1], image, 'image/jpeg')}
@@ -34,5 +34,5 @@ class Response():
         print(self.code+": " +self.text)
 
 # Run the script
-if __name__ == "__main__":
-    uvicorn.run(app)
+#if __name__ == "__main__":
+#    uvicorn.run(app)
