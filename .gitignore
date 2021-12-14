@@ -1,6 +1,5 @@
 **/__pycache__
 
-k8s/**/*.yaml
 helm/values.yaml
 
 data
