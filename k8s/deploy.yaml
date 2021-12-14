@@ -29,7 +29,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: svc-storage-api
-  namespace: exam-fast-api # Change to your own namespace!
+  namespace: exam-2-jazi-yacine # Change to your own namespace!
 spec:
   selector:
       workload.user.cattle.io/workloadselector: apps.deployment-jazi-yacine-exam 
