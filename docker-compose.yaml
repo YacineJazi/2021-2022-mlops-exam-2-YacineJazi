@@ -8,4 +8,5 @@ services:
       - ./data:/mnt/data/storage
     environment:
       STORAGE_PATH: /mnt/data/storage
-  image: ghcr.io/yacinejazi/2021-2022-mlops-exam-2-YacineJazi:main
+  fastapi-jai-yacine:
+    image: ghcr.io/yacinejazi/2021-2022-mlops-exam-2-YacineJazi:main

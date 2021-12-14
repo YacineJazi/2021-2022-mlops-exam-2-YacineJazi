@@ -4,8 +4,9 @@ from fastapi import FastAPI, File, UploadFile
 import Response
 import uvicorn
 import requests
-
+import os
 app = FastAPI()
+API_CONNECTION = os.environ['API_CONNECTION']
 
 @app.get("/")
 def start():
@@ -19,7 +20,7 @@ def sendInput(imagePath):
     files = {'file': (imagePath.split('/')[-1], image, 'image/jpeg')}
 
     try:
-        response = requests.post(f'<missing-api-connection>?type=IMAGE', files=files)
+        response = requests.post(f'{API_CONNECTION}?type=IMAGE', files=files)
         return Response(response.text, 200)
     except Exception as e:
         print(e)
